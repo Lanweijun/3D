@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			3D
+		</title>
+		<style type='text/css'>
+			.bgr{
+				width:300px;
+				height:300px;
+				margin:auto;
+				position:absolute;
+				left:300px;
+				transform-origin:left bottom;
+				transform-style:preserve-3d;
+				perspective:100000px;
+				transform:rotateY(10deg);
+				transform:rotateX(45deg) rotatey(0deg)  rotateZ(-45deg) translateZ(0);
+			}
+			.bb{
+				transform-style:preserve-3d;
+				perspective:100000px;
+				position:absolute;
+				top:50%;
+				left:50%;
+				margin-left:-300px;
+				width:600px;
+				height:600px;
+				animation:run 50s linear infinite  backwards;
+				transform:rotateX(0deg) rotatey(0deg)  rotateZ(0deg) translateZ(0);
+			}
+			
+			@keyframes run{
+				100%{
+					transform:rotatex(0deg) rotatey(360deg) rotateZ(0deg) translateZ(30px);
+				}
+			}
+			.bgr div{
+				font-size:25px;
+				text-align:center;
+				color:black;
+				width:300px;
+				height:300px;
+				position:absolute;
+				opacity:0.6;
+				transition:2s;
+				background-size:100% 100%;
+				box-shadow: 0 0 20px 10px yellow inset;
+				background:-webkit-linear-gradient(#FFCCFF ,#FF99CC );
+			}
+			.bgr div:nth-child(1){
+				top:300px;
+				transform-origin:top;
+				transform:rotateX(90deg);
+				background:url(12.jpg);
+			}
+			.bgr div:nth-child(2){
+				transform-origin:top;
+				transform:rotateX(90deg);
+				background:url(7.jpg);
+			}
+			.bgr :nth-child(3){
+				transform-origin:left;
+				transform:rotateY(-90deg);
+				background:url(4.jpg);
+			}
+			.bgr div:nth-child(4){
+				transform-origin:left;
+				transform:rotateY(-90deg);
+				left:300px;
+				background:url(6.jpg);
+			}
+			.bgr div:nth-child(5){
+				transform:translateZ(300px);
+				background:url(9.jpg);
+			}
+			.bgr div:nth-child(6){
+				background:url(10.jpg);
+
+			}
+			button{
+				display:block;
+				width:50px;
+				height:50px;
+				border-radius:20px;
+				background:#CCFFFF;
+			}
+		</style>
+	</head>
+	<body>
+		<button>+</button>
+		<button>-</button>
+		<div class='bb'>
+			<div class='bgr'>
+				<div class='d1'>
+					
+				</div>
+				<div class='d2'>
+				</div>
+				<div class='d3'>
+					
+				</div>
+				<div class='d4'>
+				</div>
+				<div class='d5'>
+				</div>
+				<div class='d6'>
+				</div>
+			</div>
+		<div>
+	</body>
+	<script type='text/javascript'>
+		var btns = document.querySelectorAll('button');
+		var nodes = document.querySelectorAll('.bgr div');
+		var num = 50;
+		btns[0].onclick=function(){
+			num += 20;
+			nodes[4].style['transform']='translateZ('+num+'px)';
+			nodes[0].style['height']=num+'px';
+			nodes[1].style['height']=num+'px';
+			nodes[2].style['width']=num+'px';
+			nodes[3].style['width']=num+'px';
+			console.log('here');
+		}
+		btns[1].onclick=function(){
+			num -= 20;
+			nodes[4].style['transform']='translateZ('+num+'px)';
+			nodes[0].style['height']=num+'px';
+			nodes[1].style['height']=num+'px';
+			nodes[2].style['width']=num+'px';
+			nodes[3].style['width']=num+'px';
+			console.log('here');
+		}
+	</script>
+</html>
